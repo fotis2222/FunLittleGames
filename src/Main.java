@@ -7,6 +7,7 @@ public class Main {
         System.out.println("""
                 play:
                 (1) dice
+                (2) guess the number
                 more coming soon...""");
         String mode = scanner.nextLine();
         if (mode.equals("1")) {
@@ -45,6 +46,21 @@ public class Main {
                     scanner.nextLine();
                     break;
                 }
+            }
+        } else if (mode.equals("2")) {
+            int secretNumber = rd.nextInt(10) + 1;;
+            int numOfGuesses = 0;
+            int guess = 0;
+            System.out.println("try to guess a number between 1 and 10 in five guesses!");
+            while (numOfGuesses < 5 && guess != secretNumber) {
+                System.out.println("guess: ");
+                guess = scanner.nextInt();
+                numOfGuesses ++;
+            }
+            if (guess == secretNumber) {
+                System.out.println("you win! secret number was" + secretNumber + ", press enter to exit");
+            } else if (numOfGuesses == 5) {
+                System.out.println("you lose, the secret number was " + secretNumber + ", press enter to exit");
             }
         } else {
             System.out.println("press the number left to the game you want to play");
