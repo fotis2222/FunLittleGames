@@ -8,6 +8,7 @@ public class Main {
                 play:
                 (1) dice
                 (2) guess the number
+                (3) guess the number v2
                 more coming soon...""");
         String mode = scanner.nextLine();
         if (mode.equals("1")) {
@@ -60,6 +61,26 @@ public class Main {
             if (guess == secretNumber) {
                 System.out.println("you win! secret number was" + secretNumber + ", press enter to exit");
             } else if (numOfGuesses == 5) {
+                System.out.println("you lose, the secret number was " + secretNumber + ", press enter to exit");
+            }
+        } else if (mode.equals("3")) {
+            int secretNumber = rd.nextInt(10) + 1;;
+            int numOfGuesses = 0;
+            int guess = 0;
+            System.out.println("try to guess a number between 1 and 10 in three guesses!");
+            while (numOfGuesses < 3 && guess != secretNumber) {
+                System.out.println("guess: ");
+                guess = scanner.nextInt();
+                numOfGuesses ++;
+                if (guess < secretNumber) {
+                    System.out.println("higher");
+                } else if (guess > secretNumber) {
+                    System.out.println("lower");
+                }
+            }
+            if (guess == secretNumber) {
+                System.out.println("you win! secret number was" + secretNumber + ", press enter to exit");
+            } else if (numOfGuesses == 3) {
                 System.out.println("you lose, the secret number was " + secretNumber + ", press enter to exit");
             }
         } else {
